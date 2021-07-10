@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -34,7 +35,7 @@ public class Person {
 
     @Column(nullable = false) // Nao pode ter valor nulo
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})  //Cascade faz o que????
-    private List<Phone> phones;
+    private List<Phone> phones = new ArrayList<>();
 
 
 }
